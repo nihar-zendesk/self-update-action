@@ -277,7 +277,7 @@ async function createPR(state: State, settings: Settings, octokit: Octokit): Pro
 
 export async function updatePRDescription(pullRequest: PullRequest, state: State, settings: Settings, octokit: Octokit): Promise<void> {
   await octokit.graphql(`
-    mutation updatePR($id: String!, $body: String!) {
+    mutation updatePR($id: ID!, $body: String!) {
       updatePullRequest(input: { pullRequestId: $id, body: $body }) {
         pullRequest {
           id
